@@ -11,6 +11,7 @@ import {
   faPython
 } from "@fortawesome/free-brands-svg-icons";
 import anime from "animejs";
+import Grid from "./ui/Grid";
 
 const Skills = () => {
   const hideBlob = () => {
@@ -50,7 +51,10 @@ const Skills = () => {
   };
 
   useEffect(() => {
-    createGrid()
+    createGrid() 
+    if (background) {
+      handleOnClick()
+    }
   },[width])
   
   const [background, setGrid] = useState(false);
@@ -69,6 +73,7 @@ const Skills = () => {
   };
 
   
+  
 
 
   return (
@@ -84,7 +89,9 @@ const Skills = () => {
           index: index,
           key: index,
           onClick: () => handleOnClick(index),
-        });
+        }, React.createElement(
+          "div", {className:"inset"}
+        ));
       })}
       <div className="skills__container">
         <h4 className="skills__title">My Skills</h4>
@@ -124,6 +131,7 @@ const Skills = () => {
           </div>
         </ul>
       </div>
+      <div className="about__container">dsfsdfsdfsdf</div>
     </section>
   );
 };
